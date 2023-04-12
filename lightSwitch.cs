@@ -4,50 +4,48 @@ using UnityEngine;
 
 public class lightSwitch : MonoBehaviour
 {
-    public GameObject textint, light;
-    public bool toggle = true, intractable;
-    public Renderer lightBuld;
+    public GameObject textInt, light;
+    public bool toggle = true, interactable;
+    public Renderer LightBuild;
     public Material onlight, offlight;
-    public AudioSource lightSwitchSound;
-    public Animator switchAnim;
+    public Animator AnimSwitch;
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("MainCamera"))
         {
-            textint.SetActive(true);
-            intractable = true;
+            textInt.SetActive(true);
+            interactable = true;
         }
-
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("MainCamera"))
         {
-            textint.SetActive(false) ;
-            intractable = false; ;
+            textInt.SetActive(false);
+            interactable = false;
         }
     }
     private void Update()
     {
-        if(intractable == true)
+        if(interactable == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 toggle = !toggle;
-                switchAnim.ResetTrigger("press");
-                switchAnim.SetTrigger("press");
+                AnimSwitch.ResetTrigger("press");
+                AnimSwitch.SetTrigger("press");
             }
         }
         if(toggle == true)
         {
             light.SetActive(true);
-            lightBuld.material = onlight;
+            LightBuild.material = onlight;
         }
-        if (toggle == false)
+        if(toggle == false)
         {
             light.SetActive(false);
-            lightBuld.material = offlight;
+            LightBuild.material = offlight;
         }
     }
 }
