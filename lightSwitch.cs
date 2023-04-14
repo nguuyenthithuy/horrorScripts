@@ -5,8 +5,9 @@ using UnityEngine;
 public class lightSwitch : MonoBehaviour
 {
     public GameObject textInt, light;
+
     public bool toggle = true, interactable;
-    public Renderer LightBuild;
+    public Renderer LightBuild;             // dùng ?? 1 cái mà s? dungnj ???c ??n 2 matterrial on off ? d??i(cha)
     public Material onlight, offlight;
     public Animator AnimSwitch;
 
